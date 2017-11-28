@@ -1,0 +1,19 @@
+{
+  "name": "rpm-spec-wizard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xsuchy/rpm-spec-wizard.git"
+  },
+  "author": "",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/xsuchy/rpm-spec-wizard/issues"
+  },
+  "homepage": "https://github.com/xsuchy/rpm-spec-wizard#readme"
+}
