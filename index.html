@@ -17,7 +17,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">
           <span class="pficon pficon-close"></span>
         </button>
-        <h4 class="modal-title">RPM Spef file Wizard</h4>
+        <h4 class="modal-title">RPM Spec file Wizard</h4>
       </div>
       <div class="modal-body wizard-pf-body clearfix">
         <div class="wizard-pf-steps hidden">
@@ -58,7 +58,13 @@
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1B.</span>
-                  <span class="wizard-pf-substep-title">Settings</span>
+                  <span class="wizard-pf-substep-title">Version</span>
+                </a>
+              </li>
+              <li class="list-group-item">                                                                              
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1C.</span>
+                  <span class="wizard-pf-substep-title">Summary</span>
                 </a>
               </li>
             </ul>
@@ -102,9 +108,9 @@
               <form class="form-horizontal">
                 <!-- replacing id with data-id to pass build errors -->
                 <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="textInput-markup">Package Name</label>
+                  <label class="col-sm-2 control-label" for="package-name-input">Package Name</label>
                   <div class="col-sm-10">
-                    <input type="text" data-id="textInput-markup" class="form-control" name="package-name-input">
+                    <input type="text" data-id="textInput-markup" class="form-control" id="package-name-input">
                   </div>
                 </div>
                 <div class="form-group">
@@ -116,18 +122,40 @@
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="lorem">Lorem ipsum</label>
+                  <label class="col-sm-2 control-label" for="package-version-input">Version</label>
                   <div class="col-sm-10">
-                    <input type="text" id="lorem" class="form-control">
+                    <input type="text" id="package-version-input" class="form-control">
                   </div>
                 </div>
+                <div class="form-group">                                                                                
+                  <p>Provide information about the upstream version of the packaged software to users.</p>              
+                </div> 
                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="dolor">Dolor (Optional)</label>
+                  <label class="col-sm-2 control-label" for="package-release-input">Release</label>
                   <div class="col-sm-10">
-                    <textarea id="dolor" class="form-control" rows="2"></textarea>
+                    <input type="text" class="form-control" id="package-release-input" placeholder="1%{?dist}"></input>
                   </div>
                 </div>
+                <div class="form-group">                                                                                
+                  <p>Use an integer beginning with 1 and increasing for each revision of the package. Put '%{?dist}'
+                     after the number.</p> 
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Versioning">Guidelines for Versioning Fedora Packages</a> and an <a href="https://fedoraproject.org/wiki/Package_Versioning_Examples">examples</a>.</p>
+                </div> 
               </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-summary-input">Summary</label>
+                  <div class="col-sm-10">
+                    <input type="text" id="package-summary-input" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">                                                                                
+                  <p>The summary should be a short and concise description of the package.</p>                                                                              
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">summary guidelines</a>.</p>
+                </div>                                                                                                  
+              </form>                                                                                                   
             </div>
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
@@ -165,17 +193,21 @@
               <div class="wizard-pf-review-steps">
 <script>
 //var firstName = document.getElementsByName("package-name-input")[0].value;
-document.querySelector('.result .package-name').innerHTML = 'World!';
-
+function refreshSpec() {
+document.querySelector('.result .package-name').innerHTML = document.getElementById('package-name-input').value;
+document.querySelector('.result .package-version').innerHTML = document.getElementById('package-version-input').value;
+document.querySelector('.result .package-release').innerHTML = document.getElementById('package-release-input').value;
+document.querySelector('.result .package-summary').innerHTML = document.getElementById('package-summary-input').value;
+}
 </script>
 <div class="result">
+  <button onclick="refreshSpec()()">Refresh</button>
 <pre class="prettyprint">
-Name:                    <span class="package-name">foo</span>
-Version:
-Release:        1%{?dist}
-Summary:
+Name:                    <span class="package-name"></span>
+Version:                 <span class="package-version"></span>
+Release:                 <span class="package-release"></span>
+Summary:                 <span class="package-summary"></span>
 
-Group:
 License:
 URL:
 Source0:
