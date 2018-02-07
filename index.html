@@ -101,12 +101,6 @@
                   <span class="wizard-pf-substep-title">Summary</span>
                 </a>
               </li>
-              <li class="list-group-item">
-                <a>
-                  <span class="wizard-pf-substep-number">3B.</span>
-                  <span class="wizard-pf-substep-title">Progress</span>
-                </a>
-              </li>
             </ul>
           </div> <!-- /.wizard-pf-sidebar -->
           <div class="wizard-pf-main">
@@ -286,24 +280,6 @@ make %{?_smp_mflags}
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
               </div>
             </div>
-            <div class="wizard-pf-contents hidden">
-              <div class="wizard-pf-process blank-slate-pf">
-                <div class="spinner spinner-lg blank-slate-pf-icon"></div>
-                <h3 class="blank-slate-pf-main-action">Deployment in progress</h3>
-                <p class="blank-slate-pf-secondary-action">Lorem ipsum dolor sit amet, porta at suspendisse ac, ut wisi
-                  vivamus, lorem sociosqu eget nunc amet. </p>
-              </div>
-              <div class="wizard-pf-complete blank-slate-pf hidden">
-                <div class="wizard-pf-success-icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
-                <h3 class="blank-slate-pf-main-action">Deployment was successful</h3>
-                <p class="blank-slate-pf-secondary-action">Lorem ipsum dolor sit amet, porta at suspendisse ac, ut wisi
-                  vivamus, lorem sociosqu eget nunc amet. </p>
-                <button type="button" class="btn btn-lg btn-primary">
-                  View Deployment
-                </button>
-
-              </div>
-            </div>
           </div><!-- /.wizard-pf-main -->
         </div>
 
@@ -317,10 +293,6 @@ make %{?_smp_mflags}
         </button>
         <button type="button" class="btn btn-primary wizard-pf-next disabled">
           Next
-          <span class="i fa fa-angle-right"></span>
-        </button>
-        <button type="button" class="btn btn-primary hidden wizard-pf-finish">
-          Deploy
           <span class="i fa fa-angle-right"></span>
         </button>
         <button type="button" class="btn btn-primary hidden wizard-pf-close wizard-pf-dismiss">Close</button>
@@ -386,7 +358,7 @@ make %{?_smp_mflags}
         }
       );
       self.tabCount = self.tabs.length;
-      self.tabSummary = self.tabs[self.tabCount - 2]; // second to last tab displays summary
+      self.tabSummary = self.tabs[self.tabCount - 1]; // last tab displays summary
       self.tabLast = self.tabs[self.tabCount - 1]; // last tab displays progress
       // set first tab group and tab as current tab
       // if someone wants to target a specific tab, that could be handled here
@@ -410,7 +382,6 @@ make %{?_smp_mflags}
       self.tabSelect();
       self.backBtnClicked();
       self.nextBtnClicked();
-      self.finishBtnClick();
       self.cancelBtnClick();
 
 
@@ -540,15 +511,6 @@ make %{?_smp_mflags}
         self.wizardPaging(1);
         // show/hide/disable/enable buttons if needed
         self.updateWizardFooterDisplay();
-      });
-    };
-
-    // Finish button clicked
-    // Deploy/Finish button would only display during the second to last step.
-    this.finishBtnClick = function() {
-      $(self.modal + " .wizard-pf-finish").click(function() {
-        self.wizardPaging(1);
-        self.finish();
       });
     };
 
