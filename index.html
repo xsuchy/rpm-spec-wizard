@@ -67,9 +67,15 @@
                   <span class="wizard-pf-substep-title">Summary</span>
                 </a>
               </li>
-              <li class="list-group-item">                                                                              
+              <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1D.</span>
+                  <span class="wizard-pf-substep-title">Description</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1E.</span>
                   <span class="wizard-pf-substep-title">License</span>
                 </a>
               </li>
@@ -166,6 +172,20 @@
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-description-input">Description</label>
+                  <div class="col-sm-10">
+                    <textarea id="package-description-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The description expands previously defined Summary. This can be one or few paragraphs. Do not include installation instructions in the description; it is not a manual. If the package requires some manual configuration or there are other important instructions to the user, refer the user to the documentation in the package. Add a README.Fedora, or similar, if you feel this is necessary.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">description guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-license-input">License</label>
                   <div class="col-sm-10">
                     <input type="text" id="package-license-input" class="form-control" placeholder="GPLv2" onchange="refreshSpec()">
@@ -175,6 +195,7 @@
                   <p>This field must be filled with the appropriate license Short Names(s) from the "Good License" tables on the <a href="https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List">Fedora Licensing page</a>.</p>
                   <p>When your package is not licensed under one of "Good License" you can put here whatever you want. E.g., "Proprietary" or "Distributable", but you should really check that you are not violating upstream copyright.</p>
                   <p>Good start to check license of your package is to search sources for files like `LICENSE`, `COPYING`. Additionaly, you can use <a href="http://search.cpan.org/dist/App-Licensecheck/bin/licensecheck">licensecheck</a> (package <a hfre="https://apps.fedoraproject.org/packages/licensecheck">licensecheck</a>): <code>licensecheck $(find -type f)</code></p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:LicensingGuidelines">Licensing Guidelines</a>.</p>
                 </div>
               </form>
             </div>
@@ -220,6 +241,7 @@ document.querySelector('.result .package-version').innerHTML = document.getEleme
 document.querySelector('.result .package-release').innerHTML = document.getElementById('package-release-input').value;
 document.querySelector('.result .package-summary').innerHTML = document.getElementById('package-summary-input').value;
 document.querySelector('.result .package-license').innerHTML = document.getElementById('package-license-input').value;
+document.querySelector('.result .package-description').innerHTML = document.getElementById('package-description-input').value;
 }
 </script>
 <div class="result">
@@ -238,7 +260,7 @@ BuildRequires:
 Requires:
 
 %description
-
+<span class="package-description"></span>
 
 %prep
 %setup -q
