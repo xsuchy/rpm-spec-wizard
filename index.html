@@ -79,6 +79,12 @@
                   <span class="wizard-pf-substep-title">License</span>
                 </a>
               </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1F.</span>
+                  <span class="wizard-pf-substep-title">URL</span>
+                </a>
+              </li>
             </ul>
             <ul class="list-group hidden">
               <li class="list-group-item">
@@ -196,6 +202,19 @@
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-url-input">URL</label>
+                  <div class="col-sm-10">
+                    <input type="text" id="package-url-input" class="form-control" placeholder="https://some.project.org/" onchange="refreshSpec()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>Link to the software homepage.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
                   <label class="col-sm-2 control-label" for="aliquam">Aliquam</label>
                   <div class="col-sm-10">
                     <input type="text" id="aliquam" class="form-control">
@@ -236,6 +255,7 @@ document.querySelector('.result .package-release').innerHTML = document.getEleme
 document.querySelector('.result .package-summary').innerHTML = document.getElementById('package-summary-input').value;
 document.querySelector('.result .package-license').innerHTML = document.getElementById('package-license-input').value;
 document.querySelector('.result .package-description').innerHTML = document.getElementById('package-description-input').value;
+document.querySelector('.result .package-url').innerHTML = document.getElementById('package-url-input').value;
 }
 </script>
 <div class="result">
@@ -247,7 +267,7 @@ Release:                 <span class="package-release"></span>
 Summary:                 <span class="package-summary"></span>
 
 License:                 <span class="package-license"></span>
-URL:
+URL:                     <span class="package-url"></span>
 Source0:
 
 BuildRequires:
