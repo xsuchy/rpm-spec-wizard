@@ -24,22 +24,31 @@
           <ul class="wizard-pf-steps-indicator">
 
             <li class="wizard-pf-step active" data-tabgroup="1">
-              <a><span class="wizard-pf-step-number">1</span><span class="wizard-pf-step-title">Preamble</span>
+              <a>
+                <span class="wizard-pf-step-number">1</span>
+                <span class="wizard-pf-step-title">Preamble</span>
               </a>
             </li>
 
             <li class="wizard-pf-step" data-tabgroup="2">
               <a>
                 <span class="wizard-pf-step-number">2</span>
-                <span class="wizard-pf-step-title">Second Step</span>
-                <span class="wizard-pf-step-title-substep">details</span>
-                <span class="wizard-pf-step-title-substep">settings</span>
+                <span class="wizard-pf-step-title">Body</span>
               </a>
             </li>
 
             <li class="wizard-pf-step" data-tabgroup="3">
               <a>
                 <span class="wizard-pf-step-number">3</span>
+                <span class="wizard-pf-step-title">Details and settings</span>
+                <!--<span class="wizard-pf-step-title-substep">details</span>-->
+                <!--<span class="wizard-pf-step-title-substep">settings</span>-->
+              </a>
+            </li>
+
+            <li class="wizard-pf-step" data-tabgroup="4">
+              <a>
+                <span class="wizard-pf-step-number">4</span>
                 <span class="wizard-pf-step-title">Your SPEC File</span>
               </a>
             </li>
@@ -70,19 +79,49 @@
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1D.</span>
-                  <span class="wizard-pf-substep-title">Description</span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <span class="wizard-pf-substep-number">1E.</span>
                   <span class="wizard-pf-substep-title">License</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
-                  <span class="wizard-pf-substep-number">1F.</span>
+                  <span class="wizard-pf-substep-number">1E.</span>
                   <span class="wizard-pf-substep-title">URL</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1F.</span>
+                  <span class="wizard-pf-substep-title">Source0</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1G.</span>
+                  <span class="wizard-pf-substep-title">Patch0</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1H.</span>
+                  <span class="wizard-pf-substep-title">BuildArch</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1I.</span>
+                  <span class="wizard-pf-substep-title">BuildRequires</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1J.</span>
+                  <span class="wizard-pf-substep-title">Requires</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1K.</span>
+                  <span class="wizard-pf-substep-title">ExcludeArch</span>
                 </a>
               </li>
             </ul>
@@ -90,12 +129,20 @@
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">2A.</span>
+                  <span class="wizard-pf-substep-title">Description</span>
+                </a>
+              </li>
+            </ul>
+            <ul class="list-group hidden">
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">3A.</span>
                   <span class="wizard-pf-substep-title">Details</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
-                  <span class="wizard-pf-substep-number">2B.</span>
+                  <span class="wizard-pf-substep-number">3B.</span>
                   <span class="wizard-pf-substep-title">Settings</span>
                 </a>
               </li>
@@ -103,12 +150,13 @@
             <ul class="list-group hidden">
               <li class="list-group-item">
                 <a>
-                  <span class="wizard-pf-substep-number">3A.</span>
+                  <span class="wizard-pf-substep-number">4A.</span>
                   <span class="wizard-pf-substep-title">Summary</span>
                 </a>
               </li>
             </ul>
           </div> <!-- /.wizard-pf-sidebar -->
+
           <div class="wizard-pf-main">
             <div class="wizard-pf-loading blank-slate-pf">
               <div class="spinner spinner-lg blank-slate-pf-icon"></div>
@@ -148,8 +196,7 @@
                   </div>
                 </div>
                 <div class="form-group">                                                                                
-                  <p>Use an integer beginning with 1 and increasing for each revision of the package. Put '%{?dist}'
-                     after the number.</p> 
+                  <p>Use an integer beginning with 1 and increasing for each revision of the package. Put '%{?dist}' after the number.</p> 
                   <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Versioning">Guidelines for Versioning Fedora Packages</a> and an <a href="https://fedoraproject.org/wiki/Package_Versioning_Examples">examples</a>.</p>
                 </div> 
               </form>
@@ -165,20 +212,6 @@
                 <div class="form-group">
                   <p>The summary should be a short and concise description of the package.</p>
                   <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">summary guidelines</a>.</p>
-                </div>
-              </form>
-            </div>
-            <div class="wizard-pf-contents hidden">
-              <form class="form-horizontal">
-                <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="package-description-input">Description</label>
-                  <div class="col-sm-10">
-                    <textarea id="package-description-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <p>The description expands previously defined Summary. This can be one or few paragraphs. Do not include installation instructions in the description; it is not a manual. If the package requires some manual configuration or there are other important instructions to the user, refer the user to the documentation in the package. Add a README.Fedora, or similar, if you feel this is necessary.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">description guidelines</a>.</p>
                 </div>
               </form>
             </div>
@@ -214,6 +247,109 @@
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-source0-input">Source0</label>
+                  <div class="col-sm-10">
+                    <input type="text" id="package-source0-input" class="form-control" placeholder="https://some.project.org/releases/project-1.1/" onchange="refreshSpec()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>Link to the compressed archive of the upstream source code.</p>
+                  <p>If needed, more SourceX directives can be added, incrementing the number each time.</p>
+                  <p>This should point to an accessible and reliable storage of the archive, for example, the upstream page and not the packager’s local storage.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL">Source URL</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-url-input">Patch0</label>
+                  <div class="col-sm-10">
+                    <input type="text" id="package-patch0-input" class="form-control" placeholder="Patch1, Patch2, Patch3, and so on..." onchange="refreshSpec()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The name of the first patch to apply to the source code if necessary.</p>
+                  <p>If needed, more PatchX directives can be added, incrementing the number each time.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Patch_Guidelines">Patch Guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="psckage-buildArch-input">BuildArch</label>
+                  <div class="col-sm-10">
+                    <input type="text" id="package-buildArch-input" class="form-control" placeholder="noarch" onchange="refreshSpec()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>If the package is not architecture dependent, for example, if written entirely in an interpreted programming language, set this to <b>noarch</b>. If not set, the package automatically inherits the Architecture of the machine on which it is built, for example x86_64.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/PackagingDrafts/BuildOnPrimaryArchitecture">Build on primary architecture</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="psckage-buildRequires-input">BuildRequires</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-buildRequires-input" class="form-control" rows="5" placeholder="foo(x86-32) >= 3.3 \n# or \nfoo(x86-64) >= 3.3" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>A comma- or whitespace-separated list of packages required for building the program written in a compiled language.</p>
+                  <p>There can be multiple entries of BuildRequires, each on its own line in the SPEC file.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#BuildRequires">Build Requires</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="psckage-requires-input">Requires</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-requires-input" class="form-control" rows="5" placeholder="# The automatic dependency on libfubar.so.1 is insufficient, \n# as we strictly need at least the release that fixes two segfaults. \nlibfubar >= 0:1.2.3-7" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>A comma- or whitespace-separated list of packages required by the software to run once installed.</p>
+                  <p>There can be multiple entries of Requires, each on its own line in the SPEC file.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/PackagingDrafts/ExplicitRequires">Explicit Requires</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-excludeArch-input">ExcludeArch</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-excludeArch-input" class="form-control" rows="5" placeholder="noarch \n# List the arches that the dependent package builds on below \n%{ix86} %{arm} x86_64 noarch" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <p>If a piece of software can not operate on a specific processor architecture, you can exclude that architecture here.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Architecture_Build_Failures">Architecture build failures</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-description-input">Description</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-description-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The description expands previously defined Summary. This can be one or few paragraphs. Do not include installation instructions in the description; it is not a manual. If the package requires some manual configuration or there are other important instructions to the user, refer the user to the documentation in the package. Add a README.Fedora, or similar, if you feel this is necessary.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">description guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
                   <label class="col-sm-2 control-label" for="aliquam">Aliquam</label>
                   <div class="col-sm-10">
                     <input type="text" id="aliquam" class="form-control">
@@ -222,7 +358,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="fermentum">Fermentum</label>
                   <div class="col-sm-10">
-                    <textarea id="fermentum" class="form-control" rows="2"></textarea>
+                    <textarea input id="fermentum" class="form-control" rows="2"></textarea>
                   </div>
                 </div>
               </form>
@@ -233,12 +369,6 @@
                   <label class="col-sm-2 control-label" for="consectetur">Consectetur</label>
                   <div class="col-sm-10">
                     <input type="text" id="consectetur" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="adipiscing">Adipiscing</label>
-                  <div class="col-sm-10">
-                    <textarea id="adipiscing" class="form-control" rows="2"></textarea>
                   </div>
                 </div>
               </form>
@@ -253,8 +383,14 @@ document.querySelector('.result .package-version').innerHTML = document.getEleme
 document.querySelector('.result .package-release').innerHTML = document.getElementById('package-release-input').value;
 document.querySelector('.result .package-summary').innerHTML = document.getElementById('package-summary-input').value;
 document.querySelector('.result .package-license').innerHTML = document.getElementById('package-license-input').value;
-document.querySelector('.result .package-description').innerHTML = document.getElementById('package-description-input').value;
 document.querySelector('.result .package-url').innerHTML = document.getElementById('package-url-input').value;
+document.querySelector('.result .package-source0').innerHTML = document.getElementById('package-source0-input').value;
+document.querySelector('.result .package-patch0').innerHTML = document.getElementById('package-patch0-input').value;
+document.querySelector('.result .package-buildArch').innerHTML = document.getElementById('package-buildArch-input').value;
+document.querySelector('.result .package-buildRequires').innerHTML = document.getElementById('package-buildRequires-input').value;
+document.querySelector('.result .package-requires').innerHTML = document.getElementById('package-requires-input').value;
+document.querySelector('.result .package-excludeArch').innerHTML = document.getElementById('package-excludeArch-input').value;
+document.querySelector('.result .package-description').innerHTML = document.getElementById('package-description-input').value;
 }
 </script>
 <div class="result">
@@ -267,10 +403,20 @@ Summary:                 <span class="package-summary"></span>
 
 License:                 <span class="package-license"></span>
 URL:                     <span class="package-url"></span>
-Source0:
+Source0:                 <span class="package-source0"></span>
+Patch0:                  <span class="package-patch0"></span>
 
-BuildRequires:
-Requires:
+BuildArch:
+<span class="package-buildArch"></span>
+
+BuildRequires:           
+<span class="package-buildRequires"></span>
+
+Requires:                
+<span class="package-requires"></span>
+
+ExcludeArch              
+<span class="package-excludeArch"></span>
 
 %description
 <span class="package-description"></span>
@@ -296,6 +442,15 @@ make %{?_smp_mflags}
 %changelog
 </pre>
 </div>
+
+<script>
+//trick to make multilane placeholders work
+var textAreas = document.getElementsByTagName('textarea');
+Array.prototype.forEach.call(textAreas, function(elem) {
+  elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
+});
+</script>
+
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
               </div>
             </div>
@@ -349,7 +504,7 @@ make %{?_smp_mflags}
       $(self.modal + " .wizard-pf-sidebar .list-group-item").each(function() {
           // set the first digit (i.e. n.0) equal to the index of the parent tab group
           // set the second digit (i.e. 0.n) equal to the index of the tab within the tab group
-          $(this).attr("data-tab", ($(this).parent().index() +1 + ($(this).index()/10 + .1)));
+          $(this).attr("data-tab", ($(this).parent().index() +1 + ($(this).index()/100 + .01)));
       });
       // assign data attribute to all tabgroups
       $(self.modal + " .wizard-pf-sidebar .list-group").each(function() {
@@ -366,7 +521,7 @@ make %{?_smp_mflags}
       $(self.modal + " .wizard-pf-steps-indicator .wizard-pf-step-title-substep").each(function() {
         // set the first digit (i.e. n.0) equal to the index of the parent tab group
         // set the second digit (i.e. 0.n) equal to the index of the tab within the tab group
-        $(this).attr("data-tab", ($(this).parent().parent().index() + 1 + (($(this).index() - 2)/10 + .1)));
+        $(this).attr("data-tab", ($(this).parent().parent().index() + 1 + (($(this).index() - 2)/100 + .01)));
       });
 
 
@@ -382,7 +537,7 @@ make %{?_smp_mflags}
       // set first tab group and tab as current tab
       // if someone wants to target a specific tab, that could be handled here
       self.currentGroup = 1;
-      self.currentTab = 1.1;
+      self.currentTab = 1.01;
       self.updateTabGroup();
       // hide loading message
       $(self.modal + " .wizard-pf-loading").addClass("hidden");
@@ -567,10 +722,10 @@ make %{?_smp_mflags}
       var newTab = self.tabs[tabIndex];
       // add/remove active class from current tab group
       // included math.round to trim off extra .000000000002 that was getting added
-      if (newTab != Math.round(10*(direction*.1 + self.currentTab))/10) {
+      if (newTab * 1000 != Math.round(1000*(direction*.01 + self.currentTab))) {
         // this statement is true when the next tab is in the next tab group
         // if next tab is in next tab group (e.g. next tab data-tab value is
-        // not equal to current tab +.1) then apply active class to next
+        // not equal to current tab +.01) then apply active class to next
         // tab group and step, and update the value for var currentGroup +/-1
         self.currentGroup = self.currentGroup + direction;
         self.updateTabGroup();
