@@ -78,49 +78,55 @@
               </li>
               <li class="list-group-item">
                 <a href="#">
-                  <span class="wizard-pf-substep-number">1D.</span>
-                  <span class="wizard-pf-substep-title">License</span>
+                  <span class="wizard-pf-substep-number">2D.</span>
+                  <span class="wizard-pf-substep-title">Description</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1E.</span>
-                  <span class="wizard-pf-substep-title">URL</span>
+                  <span class="wizard-pf-substep-title">License</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1F.</span>
-                  <span class="wizard-pf-substep-title">Source0</span>
+                  <span class="wizard-pf-substep-title">URL</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1G.</span>
-                  <span class="wizard-pf-substep-title">Patch0</span>
+                  <span class="wizard-pf-substep-title">Source0</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1H.</span>
-                  <span class="wizard-pf-substep-title">BuildArch</span>
+                  <span class="wizard-pf-substep-title">Patch0</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1I.</span>
-                  <span class="wizard-pf-substep-title">BuildRequires</span>
+                  <span class="wizard-pf-substep-title">BuildArch</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1J.</span>
-                  <span class="wizard-pf-substep-title">Requires</span>
+                  <span class="wizard-pf-substep-title">BuildRequires</span>
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">1K.</span>
+                  <span class="wizard-pf-substep-title">Requires</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">1L.</span>
                   <span class="wizard-pf-substep-title">ExcludeArch</span>
                 </a>
               </li>
@@ -129,7 +135,31 @@
               <li class="list-group-item">
                 <a href="#">
                   <span class="wizard-pf-substep-number">2A.</span>
-                  <span class="wizard-pf-substep-title">Description</span>
+                  <span class="wizard-pf-substep-title">Prep</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">2B.</span>
+                  <span class="wizard-pf-substep-title">Build</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">2C.</span>
+                  <span class="wizard-pf-substep-title">Install</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">2D.</span>
+                  <span class="wizard-pf-substep-title">Files</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">2E.</span>
+                  <span class="wizard-pf-substep-title">Changelog</span>
                 </a>
               </li>
             </ul>
@@ -218,6 +248,20 @@
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-description-input">Description</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-description-input" class="form-control" rows="5" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nCras dictum augue eros, ac rutrum eros elementum quis. \nMaecenas quis gravida ante.Quisque consectetur odio ut facilisis iaculis." onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The description expands previously defined Summary. This can be one or few paragraphs. Do not include installation instructions in the description; it is not a manual. If the package requires some manual configuration or there are other important instructions to the user, refer the user to the documentation in the package. Add a README.Fedora, or similar, if you feel this is necessary.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">description guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-license-input">License</label>
                   <div class="col-sm-10">
                     <input type="text" id="package-license-input" class="form-control" placeholder="GPLv2" onchange="refreshSpec()">
@@ -249,7 +293,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-source0-input">Source0</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-source0-input" class="form-control" placeholder="https://some.project.org/releases/project-1.1/" onchange="refreshSpec()">
+                    <input type="text" id="package-source0-input" class="form-control" placeholder="https://some.project.org/releases/project-1.1.tar.gz" onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
@@ -265,7 +309,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-url-input">Patch0</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-patch0-input" class="form-control" placeholder="Patch1, Patch2, Patch3, and so on..." onchange="refreshSpec()">
+                    <input type="text" id="package-patch0-input" class="form-control" placeholder="security.patch, fix_header.patch, and so on..." onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
@@ -328,7 +372,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                    <p>If a piece of software can not operate on a specific processor architecture, you can exclude that architecture here.</p>
+                  <p>If a piece of software can not operate on a specific processor architecture, you can exclude that architecture here.</p>
                   <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Architecture_Build_Failures">Architecture build failures</a>.</p>
                 </div>
               </form>
@@ -336,14 +380,70 @@
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="package-description-input">Description</label>
+                  <label class="col-sm-2 control-label" for="package-prep-input">Prep</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-description-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-prep-input" class="form-control" rows="5" placeholder="%setup -q\n" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The description expands previously defined Summary. This can be one or few paragraphs. Do not include installation instructions in the description; it is not a manual. If the package requires some manual configuration or there are other important instructions to the user, refer the user to the documentation in the package. Add a README.Fedora, or similar, if you feel this is necessary.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">description guidelines</a>.</p>
+                  <p>Command or series of commands to prepare the software to be built, for example, unpacking the archive in Source0. This directive can contain a shell script.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-build-input">Build</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-build-input" class="form-control" rows="5" placeholder="%configure --with-cheese \nmake %{?_smp_mflags}" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>Command or series of commands for actually building the software into machine code (for compiled languages) or byte code (for some interpreted languages).</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-install-input">Install</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-install-input" class="form-control" rows="5" placeholder="make DESTDIR=%{buildroot} install \n%find_lang %{name} \n%find_lang bar --with-man" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>Command or series of commands for copying the desired build artifacts from the %builddir (where the build happens) to the %buildroot directory (which contains the directory structure with the files to be packaged). This usually means copying files from ~/rpmbuild/BUILD to ~/rpmbuild/BUILDROOT and creating the necessary directories in ~/rpmbuild/BUILDROOT. This is only run when creating a package, not when the end-user installs the package. </p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-files-input">Files</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-files-input" class="form-control" rows="5" placeholder="%license LICENSE \n%doc README \n%{_bindir}/%{name} \n%{_mandir}/man1/bar.1*" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The list of files that will be installed in the end user’s system.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-changelog-input">Changelog</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-changelog-input" class="form-control" rows="5" placeholder="* Fri Jan 13 2012 Karel Volny <kvolny@redhat.com> 0.1-2 \n- add man pages example \n\n* Thu May 4 2006 Tom spot Callaway <tcallawa@redhat.com> 0.1-1 \n- sample spec that uses %%find_lang" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>A record of changes that have happened to the package between different Version or Release builds.</p>
+                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
                 </div>
               </form>
             </div>
@@ -382,57 +482,79 @@ document.querySelector('.result .package-name').innerHTML = document.getElementB
 document.querySelector('.result .package-version').innerHTML = document.getElementById('package-version-input').value;
 document.querySelector('.result .package-release').innerHTML = document.getElementById('package-release-input').value;
 document.querySelector('.result .package-summary').innerHTML = document.getElementById('package-summary-input').value;
+document.querySelector('.result .package-description').innerHTML = ("\n%description             " + document.getElementById('package-description-input').value.split("\n").filter(Boolean).join("\n                         "));
 document.querySelector('.result .package-license').innerHTML = document.getElementById('package-license-input').value;
 document.querySelector('.result .package-url').innerHTML = document.getElementById('package-url-input').value;
-document.querySelector('.result .package-source0').innerHTML = document.getElementById('package-source0-input').value;
-document.querySelector('.result .package-patch0').innerHTML = document.getElementById('package-patch0-input').value;
-document.querySelector('.result .package-buildArch').innerHTML = document.getElementById('package-buildArch-input').value;
-document.querySelector('.result .package-buildRequires').innerHTML = document.getElementById('package-buildRequires-input').value;
-document.querySelector('.result .package-requires').innerHTML = document.getElementById('package-requires-input').value;
-document.querySelector('.result .package-excludeArch').innerHTML = document.getElementById('package-excludeArch-input').value;
-document.querySelector('.result .package-description').innerHTML = document.getElementById('package-description-input').value;
+if (document.getElementById('package-source0-input').value){
+  document.querySelector('.result .package-source0').innerHTML = ("\nSource0:                 " + document.getElementById('package-source0-input').value);
+}else {
+  document.querySelector('.result .package-source0').innerHTML = ""
 }
+if (document.getElementById('package-patch0-input').value){
+  document.querySelector('.result .package-patch0').innerHTML = ("\nPatch0:                  " + document.getElementById('package-patch0-input').value);
+}else {
+  document.querySelector('.result .package-patch0').innerHTML = ""
+}
+if (document.getElementById('package-buildArch-input').value){
+  document.querySelector('.result .package-buildArch').innerHTML = ("\nBuildArch:               " + document.getElementById('package-buildArch-input').value.split("\n").filter(Boolean).join("\nBuildArch:               "));
+}else {
+  document.querySelector('.result .package-buildArch').innerHTML = ""
+}
+if (document.getElementById('package-buildRequires-input').value){
+  document.querySelector('.result .package-buildRequires').innerHTML = ("\nBuildRequires:           " + document.getElementById('package-buildRequires-input').value.split("\n").filter(Boolean).join("\nBuildRequires:           ")).replace(/BuildRequires:           #/g, "                         #");
+}else {
+  document.querySelector('.result .package-buildRequires').innerHTML = ""
+}
+if (document.getElementById('package-requires-input').value){
+  document.querySelector('.result .package-requires').innerHTML = ("\nRequires:                " + document.getElementById('package-requires-input').value.split("\n").filter(Boolean).join("\nRequires:                ")).replace(/Requires:                #/g, "                         #");
+}else {
+  document.querySelector('.result .package-requires').innerHTML = ""
+}
+if (document.getElementById('package-excludeArch-input').value){
+  document.querySelector('.result .package-excludeArch').innerHTML = ("\nExcludeArch:             " + document.getElementById('package-excludeArch-input').value.split("\n").filter(Boolean).join("\nExcludeArch:             ")).replace(/ExcludeArch:             #/g, "                         #");
+}else {
+  document.querySelector('.result .package-excludeArch').innerHTML = ""
+}
+if (document.getElementById('package-prep-input').value){
+  document.querySelector('.result .package-prep').innerHTML = ("\n%prep\n" + document.getElementById('package-prep-input').value + "\n");
+}else {
+  document.querySelector('.result .package-prep').innerHTML = ""
+}
+if (document.getElementById('package-build-input').value){
+  document.querySelector('.result .package-build').innerHTML = ("\n%build\n" + document.getElementById('package-build-input').value + "\n");
+}else {
+  document.querySelector('.result .package-build').innerHTML = ""
+}
+if (document.getElementById('package-install-input').value){
+  document.querySelector('.result .package-install').innerHTML = ("\n%install\n" + document.getElementById('package-install-input').value + "\n");
+}else {
+  document.querySelector('.result .package-install').innerHTML = ""
+}
+if (document.getElementById('package-files-input').value){
+  document.querySelector('.result .package-files').innerHTML = ("\n%files\n" + document.getElementById('package-files-input').value + "\n");
+}else {
+  document.querySelector('.result .package-files').innerHTML = "\n%files\n"
+}
+if (document.getElementById('package-changelog-input').value){
+  document.querySelector('.result .package-changelog').innerHTML = ("\n%changelog\n" + document.getElementById('package-changelog-input').value);
+}else {
+  document.querySelector('.result .package-changelog').innerHTML = ("\n%changelog")
+}}
 </script>
+
+<!--<SPEC file>-->
 <div class="result">
-  <button onclick="refreshSpec()">Refresh</button>
-<pre class="prettyprint">
+<!--<clicking the text will select it>-->
+<pre id="spec" onclick="selectText('spec')" class="prettyprint">
 Name:                    <span class="package-name"></span>
 Version:                 <span class="package-version"></span>
 Release:                 <span class="package-release"></span>
 Summary:                 <span class="package-summary"></span>
 
 License:                 <span class="package-license"></span>
-URL:                     <span class="package-url"></span>
-Source0:                 <span class="package-source0"></span>
-Patch0:                  <span class="package-patch0"></span>
-
-BuildArch:               <span class="package-buildArch"></span>
-BuildRequires:           <span class="package-buildRequires"></span>
-Requires:                <span class="package-requires"></span>
-ExcludeArch              <span class="package-excludeArch"></span>
-
-%description
-<span class="package-description"></span>
-
-%prep
-%setup -q
-
-
-%build
-%configure
-make %{?_smp_mflags}
-
-
-%install
-%make_install
-
-
-%files
-%doc
-
-
-
-%changelog
+URL:                     <span class="package-url"></span><span class="package-source0"></span><span class="package-patch0"></span>
+<span class="package-buildArch"></span><span class="package-buildRequires"></span><span class="package-requires"></span><span class="package-excludeArch"></span><span class="package-description"></span>
+<span class="package-prep"></span><span class="package-build"></span><span class="package-install"></span><span class="package-files"></span><span class="package-changelog"></span>
 </pre>
 </div>
 
@@ -442,6 +564,19 @@ var textAreas = document.getElementsByTagName('textarea');
 Array.prototype.forEach.call(textAreas, function(elem) {
   elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
 });
+</script>
+
+<script>
+//select (and copy to clipboard)
+function selectText(containerid) {
+  if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(document.getElementById(containerid));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    //document.execCommand('Copy');
+    //alert('Your SPEC file has been copied to the clipboard.');
+}}
 </script>
 
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
@@ -597,6 +732,8 @@ Array.prototype.forEach.call(textAreas, function(elem) {
       if (self.currentTab == self.tabSummary) {
         $(self.modal + " .wizard-pf-next").addClass("hidden");
         $(self.modal + " .wizard-pf-finish").removeClass("hidden");
+        //This refreshes results when reaching last page by any means.
+        refreshSpec()
       } else {
         $(self.modal + " .wizard-pf-finish").addClass("hidden");
         $(self.modal + " .wizard-pf-next").removeClass("hidden");
@@ -715,7 +852,7 @@ Array.prototype.forEach.call(textAreas, function(elem) {
       var newTab = self.tabs[tabIndex];
       // add/remove active class from current tab group
       // included math.round to trim off extra .000000000002 that was getting added
-      if (newTab * 1000 != Math.round(1000*(direction*.01 + self.currentTab))) {
+      if (Math.round(newTab * 100) != Math.round(100*(direction*.01 + self.currentTab))) {
         // this statement is true when the next tab is in the next tab group
         // if next tab is in next tab group (e.g. next tab data-tab value is
         // not equal to current tab +.01) then apply active class to next
