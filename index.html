@@ -40,6 +40,13 @@
             <li class="wizard-pf-step" data-tabgroup="3">
               <a>
                 <span class="wizard-pf-step-number">3</span>
+                <span class="wizard-pf-step-title">Scriptlets</span>
+              </a>
+            </li>
+
+            <li class="wizard-pf-step" data-tabgroup="4">
+              <a>
+                <span class="wizard-pf-step-number">4</span>
                 <span class="wizard-pf-step-title">Your SPEC File</span>
               </a>
             </li>
@@ -156,8 +163,52 @@
             </ul>
             <ul class="list-group hidden">
               <li class="list-group-item">
-                <a>
+                <a href="#">
                   <span class="wizard-pf-substep-number">3A.</span>
+                  <span class="wizard-pf-substep-title">General</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">3B.</span>
+                  <span class="wizard-pf-substep-title">Pretrans</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">3C.</span>
+                  <span class="wizard-pf-substep-title">Pre</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">3D.</span>
+                  <span class="wizard-pf-substep-title">Post</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">3C.</span>
+                  <span class="wizard-pf-substep-title">Preun</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">3D.</span>
+                  <span class="wizard-pf-substep-title">Postun</span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">3E.</span>
+                  <span class="wizard-pf-substep-title">Posttrans</span>
+                </a>
+              </li>
+            </ul>
+            <ul class="list-group hidden">
+              <li class="list-group-item">
+                <a>
+                  <span class="wizard-pf-substep-number">4A.</span>
                   <span class="wizard-pf-substep-title">Summary</span>
                 </a>
               </li>
@@ -425,6 +476,88 @@
               </form>
             </div>
             <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group">
+                <p>RPM spec files have several sections which allow packages to run code on installation and removal. These bits of code are called scriptlets and are mostly used to update the running system with information from the package.</p>
+                <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Scriptlets">Fedora Packaging Guidelines for RPM Scriptlets</a>.</p>
+                <p>All scriptlets are optional.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <p>The %pretrans scriptlet will, in the particular case of system installation, run before anything at all has been installed. This implies that it cannot have any dependencies at all. Not even shell. For this reason, %pretrans is best avoided, but if used it MUST (by necessity) be written in Lua. See http://rpm.org/user_doc/lua.html for more information.
+                  </p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-pre-input">Pre</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-pre-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The %pre scriptlet executes just before the package is to be installed.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-post-input">Post</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-post-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The %post scriptlet executes just after the package is to be installed.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-preun-input">Preun</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-preun-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The %preun scriptlet executes just before the package is to be erased.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-postun-input">Postun</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-postun-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The %postun scriptlet executes just after the package is to be erased. </p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-posttrans-input">Posttrans</label>
+                  <div class="col-sm-10">
+                    <textarea input id="package-posttrans-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>The %posttrans scriptlet executes after all RPM package transactions.</p>
+                </div>
+              </form>
+            </div>
+            <div class="wizard-pf-contents hidden">
               <div class="wizard-pf-review-steps">
 <script>
 //var firstName = document.getElementsByName("package-name-input")[0].value;
@@ -481,6 +614,31 @@ if (document.getElementById('package-install-input').value){
 }else {
   document.querySelector('.result .package-install').innerHTML = ""
 }
+if (document.getElementById('package-pre-input').value){
+  document.querySelector('.result .package-pre').innerHTML = ("\n%pre\n" + document.getElementById('package-pre-input').value + "\n");
+}else {
+  document.querySelector('.result .package-pre').innerHTML = ""
+}
+if (document.getElementById('package-post-input').value){
+  document.querySelector('.result .package-post').innerHTML = ("\n%post\n" + document.getElementById('package-post-input').value + "\n");
+}else {
+  document.querySelector('.result .package-post').innerHTML = ""
+}
+if (document.getElementById('package-preun-input').value){
+  document.querySelector('.result .package-preun').innerHTML = ("\n%preun\n" + document.getElementById('package-preun-input').value + "\n");
+}else {
+  document.querySelector('.result .package-preun').innerHTML = ""
+}
+if (document.getElementById('package-postun-input').value){
+  document.querySelector('.result .package-postun').innerHTML = ("\n%postun\n" + document.getElementById('package-postun-input').value + "\n");
+}else {
+  document.querySelector('.result .package-postun').innerHTML = ""
+}
+if (document.getElementById('package-posttrans-input').value){
+  document.querySelector('.result .package-posttrans').innerHTML = ("\n%posttrans\n" + document.getElementById('package-posttrans-input').value + "\n");
+}else {
+  document.querySelector('.result .package-posttrans').innerHTML = ""
+}
 if (document.getElementById('package-files-input').value){
   document.querySelector('.result .package-files').innerHTML = ("\n%files\n" + document.getElementById('package-files-input').value + "\n");
 }else {
@@ -505,7 +663,7 @@ Summary:                 <span class="package-summary"></span>
 License:                 <span class="package-license"></span>
 URL:                     <span class="package-url"></span><span class="package-source0"></span><span class="package-patch0"></span>
 <span class="package-buildArch"></span><span class="package-buildRequires"></span><span class="package-requires"></span><span class="package-excludeArch"></span><span class="package-description"></span>
-<span class="package-prep"></span><span class="package-build"></span><span class="package-install"></span><span class="package-files"></span><span class="package-changelog"></span>
+<span class="package-prep"></span><span class="package-build"></span><span class="package-install"></span><span class="package-pre"></span><span class="package-post"></span><span class="package-preun"></span><span class="package-postun"></span><span class="package-posttrans"></span><span class="package-files"></span><span class="package-changelog"></span>
 </pre>
 </div>
 
