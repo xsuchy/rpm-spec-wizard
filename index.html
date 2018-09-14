@@ -352,11 +352,11 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="psckage-buildArch-input">BuildArch</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-buildArch-input" class="form-control" placeholder="noarch" onchange="refreshSpec()">
+                    <select input size="1" id="package-buildArch-input" class="form-control" onchange="refreshSpec()"><option value="">Automatic<option value="noarch">noarch (Architecture independent)</select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>If the package is not architecture dependent, for example, if written entirely in an interpreted programming language, set this to <b>noarch</b>. If not set, the package automatically inherits the Architecture of the machine on which it is built, for example x86_64.</p>
+                  <p>If set to Automatic, the package automatically inherits the Architecture of the machine on which it is built, for example x86_64. If the package is not architecture dependent, for example, if written entirely in an interpreted programming language, set this to noarch. </p>
                   <p>For more information see <a href="https://fedoraproject.org/wiki/PackagingDrafts/BuildOnPrimaryArchitecture">Build on primary architecture</a>.</p>
                 </div>
               </form>
@@ -464,9 +464,24 @@
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-changelog-input">Full name</label>
+                  <div class="col-sm-10">
+                    <input type="text" id="userName" class="form-control" placeholder="Karel Volny" onchange="changelogCopy()">
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="package-changelog-input">Email</label>
+                  <div class="col-sm-10">
+                    <input type="text" id="emailAddress" class="form-control" placeholder="kvolny@redhat.com" onchange="changelogCopy()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <b onclick="selectText('dateAndName')";changelogCopy()>Formated today's date, name and email (click to select):</b><p><span id=dateAndName style="background-color:lightgrey;" onclick="selectText('dateAndName')"></span></p>
+                </div>
+                <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-changelog-input">Changelog</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-changelog-input" class="form-control" rows="5" placeholder="* Fri Jan 13 2012 Karel Volny <kvolny@redhat.com> 0.1-2 \n- add man pages example \n\n* Thu May 4 2006 Tom spot Callaway <tcallawa@redhat.com> 0.1-1 \n- sample spec that uses %%find_lang" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-changelog-input" class="form-control" rows="7" placeholder="* Fri Jan 13 2012 Karel Volny <kvolny@redhat.com> \n- 0.1-2 \n- add man pages example \n\n* Thu May 4 2006 Tom spot Callaway <tcallawa@redhat.com> \n- 0.1-1 \n- sample spec that uses %%find_lang" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -497,7 +512,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-pre-input">Pre</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-pre-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-pre-input" class="form-control" rows="5" placeholder="if [ $1 -gt 1 ] ; then\nfi" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -510,7 +525,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-post-input">Post</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-post-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-post-input" class="form-control" rows="5" placeholder="%systemd_post apache-httpd.service" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -523,7 +538,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-preun-input">Preun</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-preun-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-preun-input" class="form-control" rows="5" placeholder="%systemd_preun apache-httpd.service" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -536,7 +551,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-postun-input">Postun</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-postun-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-postun-input" class="form-control" rows="5" placeholder="%systemd_postun_with_restart apache-httpd.service" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -645,7 +660,7 @@ if (document.getElementById('package-files-input').value){
   document.querySelector('.result .package-files').innerHTML = "\n%files\n"
 }
 if (document.getElementById('package-changelog-input').value){
-  document.querySelector('.result .package-changelog').innerHTML = ("\n%changelog\n" + document.getElementById('package-changelog-input').value);
+  document.querySelector('.result .package-changelog').innerHTML = ("\n%changelog\n" + encodeHTML(document.getElementById('package-changelog-input').value));
 }else {
   document.querySelector('.result .package-changelog').innerHTML = ("\n%changelog")
 }}
@@ -666,6 +681,71 @@ URL:                     <span class="package-url"></span><span class="package-s
 <span class="package-prep"></span><span class="package-build"></span><span class="package-install"></span><span class="package-pre"></span><span class="package-post"></span><span class="package-preun"></span><span class="package-postun"></span><span class="package-posttrans"></span><span class="package-files"></span><span class="package-changelog"></span>
 </pre>
 </div>
+
+<script>
+changelogCopy()
+//today's date in the correct format for description
+function changelogCopy(){
+date =  new Date();
+switch (date.getDay()) {
+  case 0: day = "Sun";
+    break;
+  case 1: day = "Mon";
+    break;
+  case 2: day = "Tue";
+    break;
+  case 3: day = "Wed";
+    break;
+  case 4: day = "Thu";
+    break;
+  case 5: day = "Fri";
+    break;
+  case 6: day = "Sat";
+}
+switch(date.getMonth()) {
+  case 0: m = "Jan";
+    break;
+  case 1: m = "Feb";
+    break;
+  case 2: m = "Mar";
+    break;
+  case 3: m = "Apr";
+    break;
+  case 4: m = "May";
+    break;
+  case 8: m = "Jun"; 
+    break;
+  case 6: m = "Jul";
+    break;
+  case 7: m = "Aug";
+    break;
+  case 8: m = "Sep";
+    break;
+  case 9: m = "Oct";
+    break;
+  case 10: m = "Nov";
+    break;
+  case 11: m = "Dec";
+    break;
+}
+d = date.getDate();
+y = date.getFullYear();
+n = document.getElementById("userName").value
+if (document.getElementById("emailAddress").value){
+  e = ("&lt;" + document.getElementById("emailAddress").value + "&gt;");
+}else {
+  e = ""
+}
+document.getElementById("dateAndName").innerHTML = "* " + day + " " + m + " " + d+ " " + y + " " + n + " " + e;
+}
+</script>
+
+<script>
+//escape special characters
+function encodeHTML(insecureString) {
+  return insecureString.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+}
+</script>
 
 <script>
 //trick to make multilane placeholders work
