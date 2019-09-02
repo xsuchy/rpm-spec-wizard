@@ -424,7 +424,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-build-input">Build</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-build-input" class="form-control" rows="5" placeholder="%configure --with-cheese \nmake %{?_smp_mflags}" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-build-input" class="form-control" rows="5" placeholder="%configure --with-cheese \n%make_build" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -438,7 +438,7 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-install-input">Install</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-install-input" class="form-control" rows="5" placeholder="make DESTDIR=%{buildroot} install \n%find_lang %{name} \n%find_lang bar --with-man" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-install-input" class="form-control" rows="5" placeholder="%make_install \n%find_lang %{name} \n%find_lang bar --with-man" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
