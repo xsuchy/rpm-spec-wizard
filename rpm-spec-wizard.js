@@ -268,7 +268,7 @@ function selectText(containerid) {
     //alert('Your SPEC file has been copied to the clipboard.');
 }}
 
-function createWizzard() {
+function createWizard() {
     return function(id) {
         var self = this, modal, tabs, tabCount, tabLast, currentGroup, currentTab, contents;
         self.id = id;
