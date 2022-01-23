@@ -1,91 +1,199 @@
+function getName() {
+    return document.getElementById('package-name-input').value;
+}
+
+
+function getVersion() {
+    return document.getElementById('package-version-input').value;
+}
+
+
+function getRelease() {
+    return document.getElementById('package-release-input').value;
+}
+
+
+function getSummary() {
+    return document.getElementById('package-summary-input').value;
+}
+
+
+function getDescription() {
+    var value = document.getElementById('package-description-input').value;
+    return requiredSection("%description", value)
+}
+
+
+function getLicense() {
+    return document.getElementById('package-license-input').value;
+}
+
+
+function getUrl() {
+    return document.getElementById('package-url-input').value;
+}
+
+
+function getSource0() {
+    var value = document.getElementById('package-source0-input').value
+    return optionalMacro("Source0", value);
+}
+
+
+function getPatch0() {
+    var value = document.getElementById('package-patch0-input').value;
+    return optionalMacro("Patch0", value);
+}
+
+
+function getBuildArch() {
+    var value = document.getElementById('package-buildArch-input').value;
+    return optionalMacro("BuildArch", value);
+}
+
+
+function getBuildRequires() {
+    var value = document.getElementById('package-buildRequires-input').value;
+    return repeatedOptionalMacro("BuildRequires", value);
+}
+
+
+function getRequires() {
+    var value = document.getElementById('package-requires-input').value;
+    return repeatedOptionalMacro("Requires", value);
+}
+
+
+function getExcludeArch() {
+    var value = document.getElementById('package-excludeArch-input').value;
+    return repeatedOptionalMacro("ExcludeArch", value);
+}
+
+
+function getPrep() {
+    var value = document.getElementById('package-prep-input').value;
+    return optionalSection("%prep", value);
+}
+
+
+function getBuild() {
+    var value = document.getElementById('package-build-input').value;
+    return optionalSection("%build", value);
+}
+
+
+function getInstall() {
+    var value = document.getElementById('package-install-input').value;
+    return optionalSection("%install", value);
+}
+
+
+function getPre() {
+    var value = document.getElementById('package-pre-input').value;
+    return optionalSection("%pre", value);
+}
+
+
+function getPost() {
+    var value = document.getElementById('package-post-input').value;
+    return optionalSection("%post", value);
+}
+
+
+function getPreun() {
+    var value = document.getElementById('package-preun-input').value;
+    return optionalSection("%preun", value);
+}
+
+
+function getPostun() {
+    var value = document.getElementById('package-postun-input').value;
+    return optionalSection("%postun", value);
+}
+
+
+function getPosttrans() {
+    var value = document.getElementById('package-posttrans-input').value;
+    return optionalSection("%posttrans", value);
+}
+
+
+function getFiles() {
+    var value = document.getElementById('package-files-input').value;
+    return requiredSection("%files", value);
+}
+
+
+function getChangelog() {
+    var value = encodeHTML(document.getElementById('package-changelog-input').value);
+    return requiredSection("%changelog", value);
+}
+
+
+function optionalMacro(name, value) {
+    if (!value) {
+        return "";
+    }
+    var result = "\n";
+    result += (name + ":").padEnd(25);
+    result += value;
+    return result;
+}
+
+
+function repeatedOptionalMacro(name, value) {
+    if (!value) {
+        return "";
+    }
+    var result = "";
+    value.split("\n").forEach(element => {
+        result += optionalMacro(name, element);
+    })
+    return result;
+}
+
+
+function optionalSection(name, value) {
+    if (!value) {
+        return "";
+    }
+    return requiredSection(name, value);
+}
+
+
+function requiredSection(name, value) {
+    return `\n${name}\n${value}\n`;
+}
+
+
 function refreshSpec() {
-document.querySelector('.result .package-name').innerHTML = document.getElementById('package-name-input').value;
-document.querySelector('.result .package-version').innerHTML = document.getElementById('package-version-input').value;
-document.querySelector('.result .package-release').innerHTML = document.getElementById('package-release-input').value;
-document.querySelector('.result .package-summary').innerHTML = document.getElementById('package-summary-input').value;
-document.querySelector('.result .package-description').innerHTML = ("\n%description             " + document.getElementById('package-description-input').value.split("\n").filter(Boolean).join("\n                         "));
-document.querySelector('.result .package-license').innerHTML = document.getElementById('package-license-input').value;
-document.querySelector('.result .package-url').innerHTML = document.getElementById('package-url-input').value;
-if (document.getElementById('package-source0-input').value){
-  document.querySelector('.result .package-source0').innerHTML = ("\nSource0:                 " + document.getElementById('package-source0-input').value);
-}else {
-  document.querySelector('.result .package-source0').innerHTML = ""
+    document.querySelector('.result .package-name').innerHTML = getName();
+    document.querySelector('.result .package-version').innerHTML = getVersion();
+    document.querySelector('.result .package-release').innerHTML = getRelease();
+    document.querySelector('.result .package-summary').innerHTML = getSummary();
+    document.querySelector('.result .package-description').innerHTML = getDescription();
+    document.querySelector('.result .package-license').innerHTML = getLicense();
+    document.querySelector('.result .package-url').innerHTML = getUrl();
+
+    document.querySelector('.result .package-source0').innerHTML = getSource0();
+    document.querySelector('.result .package-patch0').innerHTML = getPatch0();
+    document.querySelector('.result .package-buildArch').innerHTML = getBuildArch();
+
+    document.querySelector('.result .package-buildRequires').innerHTML = getBuildRequires();
+    document.querySelector('.result .package-requires').innerHTML = getRequires();
+    document.querySelector('.result .package-excludeArch').innerHTML = getExcludeArch();
+
+    document.querySelector('.result .package-prep').innerHTML = getPrep();
+    document.querySelector('.result .package-build').innerHTML = getBuild();
+    document.querySelector('.result .package-install').innerHTML = getInstall();
+    document.querySelector('.result .package-pre').innerHTML = getPre();
+    document.querySelector('.result .package-post').innerHTML = getPost();
+    document.querySelector('.result .package-preun').innerHTML = getPreun();
+    document.querySelector('.result .package-postun').innerHTML = getPostun();
+    document.querySelector('.result .package-posttrans').innerHTML = getPosttrans();
+    document.querySelector('.result .package-files').innerHTML = getFiles();
+    document.querySelector('.result .package-changelog').innerHTML = getChangelog();
 }
-if (document.getElementById('package-patch0-input').value){
-  document.querySelector('.result .package-patch0').innerHTML = ("\nPatch0:                  " + document.getElementById('package-patch0-input').value);
-}else {
-  document.querySelector('.result .package-patch0').innerHTML = ""
-}
-if (document.getElementById('package-buildArch-input').value){
-  document.querySelector('.result .package-buildArch').innerHTML = ("\nBuildArch:               " + document.getElementById('package-buildArch-input').value.split("\n").filter(Boolean).join("\nBuildArch:               "));
-}else {
-  document.querySelector('.result .package-buildArch').innerHTML = ""
-}
-if (document.getElementById('package-buildRequires-input').value){
-  document.querySelector('.result .package-buildRequires').innerHTML = ("\nBuildRequires:           " + document.getElementById('package-buildRequires-input').value.split("\n").filter(Boolean).join("\nBuildRequires:           ")).replace(/BuildRequires:           #/g, "                         #");
-}else {
-  document.querySelector('.result .package-buildRequires').innerHTML = ""
-}
-if (document.getElementById('package-requires-input').value){
-  document.querySelector('.result .package-requires').innerHTML = ("\nRequires:                " + document.getElementById('package-requires-input').value.split("\n").filter(Boolean).join("\nRequires:                ")).replace(/Requires:                #/g, "                         #");
-}else {
-  document.querySelector('.result .package-requires').innerHTML = ""
-}
-if (document.getElementById('package-excludeArch-input').value){
-  document.querySelector('.result .package-excludeArch').innerHTML = ("\nExcludeArch:             " + document.getElementById('package-excludeArch-input').value.split("\n").filter(Boolean).join("\nExcludeArch:             ")).replace(/ExcludeArch:             #/g, "                         #");
-}else {
-  document.querySelector('.result .package-excludeArch').innerHTML = ""
-}
-if (document.getElementById('package-prep-input').value){
-  document.querySelector('.result .package-prep').innerHTML = ("\n%prep\n" + document.getElementById('package-prep-input').value + "\n");
-}else {
-  document.querySelector('.result .package-prep').innerHTML = ""
-}
-if (document.getElementById('package-build-input').value){
-  document.querySelector('.result .package-build').innerHTML = ("\n%build\n" + document.getElementById('package-build-input').value + "\n");
-}else {
-  document.querySelector('.result .package-build').innerHTML = ""
-}
-if (document.getElementById('package-install-input').value){
-  document.querySelector('.result .package-install').innerHTML = ("\n%install\n" + document.getElementById('package-install-input').value + "\n");
-}else {
-  document.querySelector('.result .package-install').innerHTML = ""
-}
-if (document.getElementById('package-pre-input').value){
-  document.querySelector('.result .package-pre').innerHTML = ("\n%pre\n" + document.getElementById('package-pre-input').value + "\n");
-}else {
-  document.querySelector('.result .package-pre').innerHTML = ""
-}
-if (document.getElementById('package-post-input').value){
-  document.querySelector('.result .package-post').innerHTML = ("\n%post\n" + document.getElementById('package-post-input').value + "\n");
-}else {
-  document.querySelector('.result .package-post').innerHTML = ""
-}
-if (document.getElementById('package-preun-input').value){
-  document.querySelector('.result .package-preun').innerHTML = ("\n%preun\n" + document.getElementById('package-preun-input').value + "\n");
-}else {
-  document.querySelector('.result .package-preun').innerHTML = ""
-}
-if (document.getElementById('package-postun-input').value){
-  document.querySelector('.result .package-postun').innerHTML = ("\n%postun\n" + document.getElementById('package-postun-input').value + "\n");
-}else {
-  document.querySelector('.result .package-postun').innerHTML = ""
-}
-if (document.getElementById('package-posttrans-input').value){
-  document.querySelector('.result .package-posttrans').innerHTML = ("\n%posttrans\n" + document.getElementById('package-posttrans-input').value + "\n");
-}else {
-  document.querySelector('.result .package-posttrans').innerHTML = ""
-}
-if (document.getElementById('package-files-input').value){
-  document.querySelector('.result .package-files').innerHTML = ("\n%files\n" + document.getElementById('package-files-input').value + "\n");
-}else {
-  document.querySelector('.result .package-files').innerHTML = "\n%files\n"
-}
-if (document.getElementById('package-changelog-input').value){
-  document.querySelector('.result .package-changelog').innerHTML = ("\n%changelog\n" + encodeHTML(document.getElementById('package-changelog-input').value));
-}else {
-  document.querySelector('.result .package-changelog').innerHTML = ("\n%changelog")
-}}
 
 
 //today's date in the correct format for description
