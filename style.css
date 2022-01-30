@@ -127,3 +127,10 @@ footer {
 .wizard-pf-sidebar .list-group-item>a {
   width: 18em;
 }
+
+.wizard-pf {
+  width: 1200px;
+  min-width: 700px;
+  max-width: 60%;
+  height: 95%;
+}
