@@ -2,15 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>RPM Spec Wizard</title>
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly-additions.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/js/patternfly.min.js"></script>
   <script src="rpm-spec-wizard.js"></script>
 </head>
 <body>
-<button class="btn btn-default wizard-pf-open wizard-pf-complete" data-target="#complete">Launch wizard</button>
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            <img src="img/fedora-logo.png">
+            <span>RPM Spec Wizard</span>
+          </a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="launch">
+            <a href="#"
+               class="wizard-pf-open wizard-pf-complete"
+               data-target="#complete">Launch
+            </a>
+          </li>
+          <li><a href="https://github.com/xsuchy/rpm-spec-wizard">Code</a></li>
+          <li><a href="https://github.com/xsuchy/rpm-spec-wizard/issues">Issues</a></li>
+          <li><a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="content">
+    <div id="header">
+      <h1>RPM Spec Wizard</h1>
+      <p>An interactive guide for creating RPM spec files</p>
+    </div>
+
+    <div class="info pull-right">
+      <ul>
+        <li>No previous knowledge required</li>
+        <li>No backend - your data stay in your web browser</li>
+        <li>Running a self-hosted instance is easy</li>
+        <li>Contact us at
+          <a href="https://libera.chat/guides/connect">#fedora-buildsys</a> or
+          <a href="https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/">
+            devel@lists.fedoraproject.org
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="screenshot">
+      <a href="#"
+          class="wizard-pf-open wizard-pf-complete"
+          data-target="#complete">
+        <img src="img/screenshot.png">
+      </a>
+    </div>
+
+  </div>
+
+
+
+<!-- Wizard modal interface  -->
+
+
 <div class="modal" id="complete" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg wizard-pf">
     <div class="modal-content">
@@ -634,12 +698,18 @@ Array.prototype.forEach.call(textAreas, function(elem) {
 <script>
   $(document).ready(function() {
     //initialize wizard
-    var completeWizard = new wizard(".btn.wizard-pf-complete");
+    var completeWizard = new wizard("a.wizard-pf-complete");
   });
 
   var wizard = createWizard();
 </script>
 
-<a href="https://github.com/xsuchy/rpm-spec-wizard"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+  <footer>
+    <div class="container">
+      <p>© 2021 Red Hat, Inc. and others.</p>
+    </div>
+  </footer>
+
 </body>
 </html>

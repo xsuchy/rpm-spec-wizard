@@ -1,0 +1,118 @@
+#header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#header h1 {
+  color: #51A2DA;
+  font-size: 40px;
+}
+
+#header p {
+  font-size: 30px;
+  color: #555;
+}
+
+.navbar {
+  /* Borrowed from masthead class on */
+  /* https://accounts.fedoraproject.org */
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 0 10px 2px #ddd;
+  background-image: linear-gradient(to bottom, #eee 0%, #ddd 100%);
+  background-repeat: repeat-x;
+  margin-bottom: 20px;
+}
+
+.navbar-brand {
+  padding: 0px !important;
+  width: 400px;
+}
+
+.navbar-brand img {
+  width: 40px;
+  margin-top: 5px;
+  float: left;
+  margin-right: 10px;
+}
+
+a.navbar-brand span {
+  font-size: 22px;
+  margin-top: 13px;
+  display: block;
+}
+
+.navbar-right a {
+  font-size: 15px;
+}
+
+.navbar li.launch {
+  margin-right: 10px;
+}
+
+.navbar li.launch a {
+  color: #51A2DA;
+  font-size: 18px;
+  font-weight: 600;
+
+  border-bottom-style: solid;
+  border-bottom-color: #51A2DA;
+  border-bottom-width: 1px;
+}
+
+.navbar li.launch a::before{
+  content:"";
+  background-image: url("img/font-awesome/hat-wizard-solid.svg");
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+  margin-right: 10px;
+  display:inline-block;
+  float:left;
+
+  /* We can't simply set color of a svg image, it needs to be done */
+  /* via filter. This color is #51A2DA. Use */
+  /* https://codepen.io/sosuke/pen/Pjoqqp to convert hex color to filter */
+  filter: invert(64%) sepia(22%) saturate(1280%) hue-rotate(169deg) brightness(89%) contrast(91%);
+}
+
+.info {
+  margin-top: 70px;
+  width: 350px;
+}
+
+.info li {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.info a {
+  color: #51A2DA;
+}
+
+.info ul {
+  list-style: none;
+}
+
+#screenshot img {
+  border: 1px solid #eee;
+}
+
+.info ul li::before {
+  content: "\2022";
+  color: #51A2DA;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+footer {
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
