@@ -297,7 +297,7 @@
                            id="package-name-input" onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     Package names should be in lower case and use
                     dashes in preference to underscores
@@ -322,7 +322,7 @@
                            class="form-control" onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     Provide information about the upstream version of
                     the packaged software to users.
@@ -335,7 +335,7 @@
                            placeholder="1%{?dist}" onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     Use an integer beginning with 1 and increasing for
                     each revision of the package. Put '%{?dist}' after
@@ -365,7 +365,7 @@
                            class="form-control" onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The summary should be a short and concise
                     description of the package.
@@ -390,7 +390,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The description expands previously defined
                     Summary. This can be one or few paragraphs. Do not
@@ -420,7 +420,7 @@
                            placeholder="GPLv2" onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     This field must be filled with the appropriate
                     license Short Names(s) from the "Good License"
@@ -465,7 +465,7 @@
                            placeholder="https://some.project.org/" onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>Link to the software homepage.</p>
                 </div>
               </form>
@@ -480,7 +480,7 @@
                            onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     Link to the compressed archive of the upstream
                     source code.
@@ -515,7 +515,7 @@
                            onchange="refreshSpec()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The name of the first patch to apply to the source
                     code if necessary.
@@ -546,7 +546,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     If set to Automatic, the package automatically
                     inherits the Architecture of the machine on which
@@ -578,7 +578,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     A comma- or whitespace-separated list of packages
                     required for building the program written in a
@@ -609,7 +609,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     A comma- or whitespace-separated list of packages
                     required by the software to run once installed.
@@ -639,7 +639,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     If a piece of software can not operate on a
                     specific processor architecture, you can exclude
@@ -665,7 +665,7 @@
                               placeholder="%setup -q\n" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     Command or series of commands to prepare the
                     software to be built, for example, unpacking the
@@ -693,7 +693,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     Command or series of commands for actually
                     building the software into machine code (for
@@ -721,7 +721,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     Command or series of commands for copying the
                     desired build artifacts from the %builddir (where
@@ -755,7 +755,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The list of files that will be installed in the
                     end user’s system.
@@ -787,7 +787,7 @@
                            placeholder="jqpublic@example.com" onchange="changelogCopy()">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <b onclick="selectText('dateAndName')";changelogCopy()>Formated today's date, name and email (click to select):</b><p><span id=dateAndName style="background-color:lightgrey;" onclick="selectText('dateAndName')"></span></p>
                 </div>
                 <div class="form-group required">
@@ -798,7 +798,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     A record of changes that have happened to the
                     package between different Version or Release
@@ -817,7 +817,7 @@
 
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
-                <div class="form-group">
+                <div class="wizard-instructions">
                 <p>
                   RPM spec files have several sections which allow
                   packages to run code on installation and
@@ -839,7 +839,7 @@
 
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
-                <div class="form-group required">
+                <div class="wizard-instructions">
                   <p>
                     The %pretrans scriptlet will, in the particular
                     case of system installation, run before anything
@@ -867,7 +867,7 @@
                               placeholder="if [ $1 -gt 1 ] ; then\nfi" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The %pre scriptlet executes just before the
                     package is to be installed.
@@ -887,7 +887,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The %post scriptlet executes just after the
                     package is to be installed.
@@ -907,7 +907,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The %preun scriptlet executes just before the
                     package is to be erased.
@@ -927,7 +927,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The %postun scriptlet executes just after the
                     package is to be erased.
@@ -946,7 +946,7 @@
                               onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="wizard-instructions">
                   <p>
                     The %posttrans scriptlet executes after all RPM
                     package transactions.

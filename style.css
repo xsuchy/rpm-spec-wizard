@@ -116,3 +116,14 @@ footer {
   width: 100%;
   height: 60px;
 }
+
+.wizard-instructions {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.wizard-pf-sidebar .list-group-item>a {
+  width: 18em;
+}
