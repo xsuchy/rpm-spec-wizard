@@ -338,8 +338,8 @@
                 <div class="wizard-instructions">
                   <p>
                     Use an integer beginning with 1 and increasing for
-                    each revision of the package. Put '%{?dist}' after
-                    the number.
+                    each revision of the package.<br>
+                    Put <code>%{?dist}</code> after the number.
                   </p>
                   <p>
                     For more information see
@@ -399,7 +399,7 @@
                     requires some manual configuration or there are
                     other important instructions to the user, refer
                     the user to the documentation in the package. Add
-                    a README.Fedora, or similar, if you feel this is
+                    a <code>README.Fedora</code>, or similar, if you feel this is
                     necessary.
                   </p>
                   <p>For more information see
@@ -438,12 +438,13 @@
                   </p>
                   <p>
                     Good start to check license of your package is to
-                    search sources for files like `LICENSE`,
-                    `COPYING`. Additionaly, you can use
+                    search sources for files like <code>LICENSE</code>,
+                    <code>COPYING</code>. Additionaly, you can use
                     <a href="http://search.cpan.org/dist/App-Licensecheck/bin/licensecheck">
                       licensecheck
                     </a>
                     (package <a hfre="https://apps.fedoraproject.org/packages/licensecheck">licensecheck</a>):
+                    <br>
                     <code>licensecheck $(find -type f)</code>
                   </p>
                   <p>
@@ -724,13 +725,13 @@
                 <div class="wizard-instructions">
                   <p>
                     Command or series of commands for copying the
-                    desired build artifacts from the %builddir (where
-                    the build happens) to the %buildroot directory
-                    (which contains the directory structure with the
+                    desired build artifacts from the <code>%builddir</code>
+                    (where the build happens) to the <code>%buildroot</code>
+                    directory (which contains the directory structure with the
                     files to be packaged). This usually means copying
-                    files from ~/rpmbuild/BUILD to
-                    ~/rpmbuild/BUILDROOT and creating the necessary
-                    directories in ~/rpmbuild/BUILDROOT. This is only
+                    files from <code>~/rpmbuild/BUILD</code> to
+                    <code>~/rpmbuild/BUILDROOT</code> and creating the necessary
+                    directories in <code>~/rpmbuild/BUILDROOT</code>. This is only
                     run when creating a package, not when the end-user
                     installs the package.
                   </p>
@@ -841,11 +842,11 @@
               <form class="form-horizontal">
                 <div class="wizard-instructions">
                   <p>
-                    The %pretrans scriptlet will, in the particular
+                    The <code>%pretrans</code> scriptlet will, in the particular
                     case of system installation, run before anything
                     at all has been installed. This implies that it
                     cannot have any dependencies at all. Not even
-                    shell. For this reason, %pretrans is best avoided,
+                    shell. For this reason, <code>%pretrans</code> is best avoided,
                     but if used it MUST (by necessity) be written in
                     Lua. See
                     <a href="http://rpm.org/user_doc/lua.html">
@@ -869,7 +870,7 @@
                 </div>
                 <div class="wizard-instructions">
                   <p>
-                    The %pre scriptlet executes just before the
+                    The <code>%pre</code> scriptlet executes just before the
                     package is to be installed.
                   </p>
                 </div>
@@ -889,7 +890,7 @@
                 </div>
                 <div class="wizard-instructions">
                   <p>
-                    The %post scriptlet executes just after the
+                    The <code>%post</code> scriptlet executes just after the
                     package is to be installed.
                   </p>
                 </div>
@@ -909,7 +910,7 @@
                 </div>
                 <div class="wizard-instructions">
                   <p>
-                    The %preun scriptlet executes just before the
+                    The <code>%preun</code> scriptlet executes just before the
                     package is to be erased.
                   </p>
                 </div>
@@ -929,7 +930,7 @@
                 </div>
                 <div class="wizard-instructions">
                   <p>
-                    The %postun scriptlet executes just after the
+                    The <code>%postun</code> scriptlet executes just after the
                     package is to be erased.
                   </p>
                 </div>
@@ -948,7 +949,7 @@
                 </div>
                 <div class="wizard-instructions">
                   <p>
-                    The %posttrans scriptlet executes after all RPM
+                    The <code>%posttrans</code> scriptlet executes after all RPM
                     package transactions.
                   </p>
                 </div>
