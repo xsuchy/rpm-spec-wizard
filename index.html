@@ -280,6 +280,7 @@
             </ul>
           </div> <!-- /.wizard-pf-sidebar -->
 
+
           <div class="wizard-pf-main">
             <div class="wizard-pf-loading blank-slate-pf">
               <div class="spinner spinner-lg blank-slate-pf-icon"></div>
@@ -292,88 +293,176 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-name-input">Package Name</label>
                   <div class="col-sm-10">
-                    <input type="text" data-id="textInput-markup" class="form-control" id="package-name-input" onchange="refreshSpec()">
+                    <input type="text" data-id="textInput-markup" class="form-control"
+                           id="package-name-input" onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>Package names should be in lower case and use dashes in preference to underscores</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Naming?rd=Packaging:NamingGuidelines">Guidelines for Naming Fedora Packages</a>.</p>
+                  <p>
+                    Package names should be in lower case and use
+                    dashes in preference to underscores
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Naming?rd=Packaging:NamingGuidelines">
+                      Guidelines for Naming Fedora Packages
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-version-input">Version</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-version-input" class="form-control" onchange="refreshSpec()">
+                    <input type="text" id="package-version-input"
+                           class="form-control" onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>Provide information about the upstream version of the packaged software to users.</p>
+                  <p>
+                    Provide information about the upstream version of
+                    the packaged software to users.
+                  </p>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="package-release-input">Release</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="package-release-input" placeholder="1%{?dist}" onchange="refreshSpec()">
+                    <input type="text" class="form-control" id="package-release-input"
+                           placeholder="1%{?dist}" onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>Use an integer beginning with 1 and increasing for each revision of the package. Put '%{?dist}' after the number.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Versioning">Guidelines for Versioning Fedora Packages</a> and an <a href="https://fedoraproject.org/wiki/Package_Versioning_Examples">examples</a>.</p>
+                  <p>
+                    Use an integer beginning with 1 and increasing for
+                    each revision of the package. Put '%{?dist}' after
+                    the number.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Versioning">
+                      Guidelines for Versioning Fedora Packages
+                    </a>
+                    and an
+                    <a href="https://fedoraproject.org/wiki/Package_Versioning_Examples">
+                      examples
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-summary-input">Summary</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-summary-input" class="form-control" onchange="refreshSpec()">
+                    <input type="text" id="package-summary-input"
+                           class="form-control" onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The summary should be a short and concise description of the package.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">summary guidelines</a>.</p>
+                  <p>
+                    The summary should be a short and concise
+                    description of the package.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">
+                      summary guidelines</a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-description-input">Description</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-description-input" class="form-control" rows="5" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nCras dictum augue eros, ac rutrum eros elementum quis. \nMaecenas quis gravida ante.Quisque consectetur odio ut facilisis iaculis." onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-description-input" class="form-control" rows="5"
+                              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nCras dictum augue eros, ac rutrum eros elementum quis. \nMaecenas quis gravida ante.Quisque consectetur odio ut facilisis iaculis."
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The description expands previously defined Summary. This can be one or few paragraphs. Do not include installation instructions in the description; it is not a manual. If the package requires some manual configuration or there are other important instructions to the user, refer the user to the documentation in the package. Add a README.Fedora, or similar, if you feel this is necessary.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">description guidelines</a>.</p>
+                  <p>
+                    The description expands previously defined
+                    Summary. This can be one or few paragraphs. Do not
+                    include installation instructions in the
+                    description; it is not a manual. If the package
+                    requires some manual configuration or there are
+                    other important instructions to the user, refer
+                    the user to the documentation in the package. Add
+                    a README.Fedora, or similar, if you feel this is
+                    necessary.
+                  </p>
+                  <p>For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Summary_and_description">
+                      description guidelines</a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-license-input">License</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-license-input" class="form-control" placeholder="GPLv2" onchange="refreshSpec()">
+                    <input type="text" id="package-license-input" class="form-control"
+                           placeholder="GPLv2" onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>This field must be filled with the appropriate license Short Names(s) from the "Good License" tables on the <a href="https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List">Fedora Licensing page</a>.</p>
-                  <p>When your package is not licensed under one of "Good License" you can put here whatever you want. E.g., "Proprietary" or "Distributable", but you should really check that you are not violating upstream copyright.</p>
-                  <p>Good start to check license of your package is to search sources for files like `LICENSE`, `COPYING`. Additionaly, you can use <a href="http://search.cpan.org/dist/App-Licensecheck/bin/licensecheck">licensecheck</a> (package <a hfre="https://apps.fedoraproject.org/packages/licensecheck">licensecheck</a>): <code>licensecheck $(find -type f)</code></p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:LicensingGuidelines">Licensing Guidelines</a>.</p>
+                  <p>
+                    This field must be filled with the appropriate
+                    license Short Names(s) from the "Good License"
+                    tables on the
+                    <a href="https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List">
+                      Fedora Licensing page
+                    </a>.
+                  </p>
+                  <p>
+                    When your package is not licensed under one of
+                    "Good License" you can put here whatever you
+                    want. E.g., "Proprietary" or "Distributable", but
+                    you should really check that you are not violating
+                    upstream copyright.
+                  </p>
+                  <p>
+                    Good start to check license of your package is to
+                    search sources for files like `LICENSE`,
+                    `COPYING`. Additionaly, you can use
+                    <a href="http://search.cpan.org/dist/App-Licensecheck/bin/licensecheck">
+                      licensecheck
+                    </a>
+                    (package <a hfre="https://apps.fedoraproject.org/packages/licensecheck">licensecheck</a>):
+                    <code>licensecheck $(find -type f)</code>
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:LicensingGuidelines">
+                      Licensing Guidelines</a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-url-input">URL</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-url-input" class="form-control" placeholder="https://some.project.org/" onchange="refreshSpec()">
+                    <input type="text" id="package-url-input" class="form-control"
+                           placeholder="https://some.project.org/" onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
@@ -386,158 +475,316 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-source0-input">Source0</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-source0-input" class="form-control" placeholder="https://some.project.org/releases/project-1.1.tar.gz" onchange="refreshSpec()">
+                    <input type="text" id="package-source0-input" class="form-control"
+                           placeholder="https://some.project.org/releases/project-1.1.tar.gz"
+                           onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>Link to the compressed archive of the upstream source code.</p>
-                  <p>If needed, more SourceX directives can be added, incrementing the number each time.</p>
-                  <p>This should point to an accessible and reliable storage of the archive, for example, the upstream page and not the packager’s local storage.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL">Source URL</a>.</p>
+                  <p>
+                    Link to the compressed archive of the upstream
+                    source code.
+                  </p>
+                  <p>
+                    If needed, more SourceX directives can be added,
+                    incrementing the number each time.
+                  </p>
+                  <p>
+                    This should point to an accessible and reliable
+                    storage of the archive, for example, the upstream
+                    page and not the packager’s local storage.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL">
+                      Source URL
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-url-input">Patch0</label>
                   <div class="col-sm-10">
-                    <input type="text" id="package-patch0-input" class="form-control" placeholder="security.patch, fix_header.patch, and so on..." onchange="refreshSpec()">
+                    <input type="text" id="package-patch0-input" class="form-control"
+                           placeholder="security.patch, fix_header.patch, and so on..."
+                           onchange="refreshSpec()">
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The name of the first patch to apply to the source code if necessary.</p>
-                  <p>If needed, more PatchX directives can be added, incrementing the number each time.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Patch_Guidelines">Patch Guidelines</a>.</p>
+                  <p>
+                    The name of the first patch to apply to the source
+                    code if necessary.
+                  </p>
+                  <p>
+                    If needed, more PatchX directives can be added,
+                    incrementing the number each time.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Patch_Guidelines">
+                      Patch Guidelines</a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="psckage-buildArch-input">BuildArch</label>
                   <div class="col-sm-10">
-                    <select input size="1" id="package-buildArch-input" class="form-control" onchange="refreshSpec()"><option value="">Automatic<option value="noarch">noarch (Architecture independent)</select>
+                    <select input size="1" id="package-buildArch-input"
+                            class="form-control" onchange="refreshSpec()">
+                      <option value="">Automatic</option>
+                      <option value="noarch">noarch (Architecture independent)</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>If set to Automatic, the package automatically inherits the Architecture of the machine on which it is built, for example x86_64. If the package is not architecture dependent, for example, if written entirely in an interpreted programming language, set this to noarch. </p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/PackagingDrafts/BuildOnPrimaryArchitecture">Build on primary architecture</a>.</p>
+                  <p>
+                    If set to Automatic, the package automatically
+                    inherits the Architecture of the machine on which
+                    it is built, for example x86_64. If the package is
+                    not architecture dependent, for example, if
+                    written entirely in an interpreted programming
+                    language, set this to noarch.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/PackagingDrafts/BuildOnPrimaryArchitecture">
+                      Build on primary architecture
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="psckage-buildRequires-input">BuildRequires</label>
+                  <label class="col-sm-2 control-label" for="psckage-buildRequires-input">
+                    BuildRequires
+                  </label>
                   <div class="col-sm-10">
-                    <textarea input id="package-buildRequires-input" class="form-control" rows="5" placeholder="foo >= 3.3 \n# or \nfoo >= 3.3" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-buildRequires-input" class="form-control" rows="5"
+                              placeholder="foo >= 3.3 \n# or \nfoo >= 3.3"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>A comma- or whitespace-separated list of packages required for building the program written in a compiled language.</p>
-                  <p>There can be multiple entries of BuildRequires, each on its own line in the SPEC file.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#BuildRequires">Build Requires</a>.</p>
+                  <p>
+                    A comma- or whitespace-separated list of packages
+                    required for building the program written in a
+                    compiled language.
+                  </p>
+                  <p>
+                    There can be multiple entries of BuildRequires,
+                    each on its own line in the SPEC file.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#BuildRequires">
+                      Build Requires
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="psckage-requires-input">Requires</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-requires-input" class="form-control" rows="5" placeholder="# The automatic dependency on libfubar.so.1 is insufficient, \n# as we strictly need at least the release that fixes two segfaults. \nlibfubar >= 0:1.2.3-7" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-requires-input" class="form-control" rows="5"
+                              placeholder="# The automatic dependency on libfubar.so.1 is insufficient, \n# as we strictly need at least the release that fixes two segfaults. \nlibfubar >= 0:1.2.3-7"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>A comma- or whitespace-separated list of packages required by the software to run once installed.</p>
-                  <p>There can be multiple entries of Requires, each on its own line in the SPEC file.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/PackagingDrafts/ExplicitRequires">Explicit Requires</a>.</p>
+                  <p>
+                    A comma- or whitespace-separated list of packages
+                    required by the software to run once installed.
+                  </p>
+                  <p>
+                    There can be multiple entries of Requires, each on
+                    its own line in the SPEC file.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/PackagingDrafts/ExplicitRequires">
+                      Explicit Requires
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-excludeArch-input">ExcludeArch</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-excludeArch-input" class="form-control" rows="5" placeholder="noarch \n# List the arches that the dependent package builds on below \n%{ix86} %{arm} x86_64 noarch" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-excludeArch-input" class="form-control" rows="5"
+                              placeholder="noarch \n# List the arches that the dependent package builds on below \n%{ix86} %{arm} x86_64 noarch"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>If a piece of software can not operate on a specific processor architecture, you can exclude that architecture here.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Architecture_Build_Failures">Architecture build failures</a>.</p>
+                  <p>
+                    If a piece of software can not operate on a
+                    specific processor architecture, you can exclude
+                    that architecture here.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Architecture_Build_Failures">
+                      Architecture build failures
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-prep-input">Prep</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-prep-input" class="form-control" rows="5" placeholder="%setup -q\n" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-prep-input" class="form-control" rows="5"
+                              placeholder="%setup -q\n" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>Command or series of commands to prepare the software to be built, for example, unpacking the archive in Source0. This directive can contain a shell script.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                  <p>
+                    Command or series of commands to prepare the
+                    software to be built, for example, unpacking the
+                    archive in Source0. This directive can contain a
+                    shell script.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">
+                      guidelines
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-build-input">Build</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-build-input" class="form-control" rows="5" placeholder="%configure --with-cheese \n%make_build" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-build-input" class="form-control" rows="5"
+                              placeholder="%configure --with-cheese \n%make_build"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>Command or series of commands for actually building the software into machine code (for compiled languages) or byte code (for some interpreted languages).</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                  <p>
+                    Command or series of commands for actually
+                    building the software into machine code (for
+                    compiled languages) or byte code (for some
+                    interpreted languages).
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">
+                      guidelines
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-install-input">Install</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-install-input" class="form-control" rows="5" placeholder="%make_install \n%find_lang %{name} \n%find_lang bar --with-man" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-install-input" class="form-control" rows="5"
+                              placeholder="%make_install \n%find_lang %{name} \n%find_lang bar --with-man"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>Command or series of commands for copying the desired build artifacts from the %builddir (where the build happens) to the %buildroot directory (which contains the directory structure with the files to be packaged). This usually means copying files from ~/rpmbuild/BUILD to ~/rpmbuild/BUILDROOT and creating the necessary directories in ~/rpmbuild/BUILDROOT. This is only run when creating a package, not when the end-user installs the package. </p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                  <p>
+                    Command or series of commands for copying the
+                    desired build artifacts from the %builddir (where
+                    the build happens) to the %buildroot directory
+                    (which contains the directory structure with the
+                    files to be packaged). This usually means copying
+                    files from ~/rpmbuild/BUILD to
+                    ~/rpmbuild/BUILDROOT and creating the necessary
+                    directories in ~/rpmbuild/BUILDROOT. This is only
+                    run when creating a package, not when the end-user
+                    installs the package.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">
+                      guidelines
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-files-input">Files</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-files-input" class="form-control" rows="5" placeholder="%license LICENSE \n%doc README \n%{_bindir}/%{name} \n%{_mandir}/man1/bar.1*" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-files-input" class="form-control" rows="5"
+                              placeholder="%license LICENSE \n%doc README \n%{_bindir}/%{name} \n%{_mandir}/man1/bar.1*"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The list of files that will be installed in the end user’s system.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
+                  <p>
+                    The list of files that will be installed in the
+                    end user’s system.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">
+                      guidelines
+                    </a>.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-changelog-input">Full name</label>
                   <div class="col-sm-10">
-                    <input type="text" id="userName" class="form-control" placeholder="John Q. Public" onchange="changelogCopy()">
+                    <input type="text" id="userName" class="form-control"
+                           placeholder="John Q. Public" onchange="changelogCopy()">
                   </div>
                 </div>
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-changelog-input">Email</label>
                   <div class="col-sm-10">
-                    <input type="text" id="emailAddress" class="form-control" placeholder="jqpublic@example.com" onchange="changelogCopy()">
+                    <input type="text" id="emailAddress" class="form-control"
+                           placeholder="jqpublic@example.com" onchange="changelogCopy()">
                   </div>
                 </div>
                 <div class="form-group">
@@ -546,97 +793,169 @@
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-changelog-input">Changelog</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-changelog-input" class="form-control" rows="7" placeholder="* Fri Jan 13 2012 John Q. Public <jqpublic@example.com> - 0.1-2 \n- Add man pages \n\n* Thu May 4 2006 Jane Q. Citizen <jqcitizen@example.com> - 0.1-1 \n- Initial package" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-changelog-input" class="form-control" rows="7"
+                              placeholder="* Fri Jan 13 2012 John Q. Public <jqpublic@example.com> - 0.1-2 \n- Add man pages \n\n* Thu May 4 2006 Jane Q. Citizen <jqcitizen@example.com> - 0.1-1 \n- Initial package"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>A record of changes that have happened to the package between different Version or Release builds.</p>
-                  <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">guidelines</a>.</p>
-                </div>
-              </form>
-            </div>
-            <div class="wizard-pf-contents hidden">
-              <form class="form-horizontal">
-                <div class="form-group">
-                <p>RPM spec files have several sections which allow packages to run code on installation and removal. These bits of code are called scriptlets and are mostly used to update the running system with information from the package.</p>
-                <p>For more information see <a href="https://fedoraproject.org/wiki/Packaging:Scriptlets">Fedora Packaging Guidelines for RPM Scriptlets</a>.</p>
-                <p>All scriptlets are optional.</p>
-                </div>
-              </form>
-            </div>
-            <div class="wizard-pf-contents hidden">
-              <form class="form-horizontal">
-                <div class="form-group required">
-                  <p>The %pretrans scriptlet will, in the particular case of system installation, run before anything at all has been installed. This implies that it cannot have any dependencies at all. Not even shell. For this reason, %pretrans is best avoided, but if used it MUST (by necessity) be written in Lua. See <a href="http://rpm.org/user_doc/lua.html">Lua in RPM</a> for more information.
+                  <p>
+                    A record of changes that have happened to the
+                    package between different Version or Release
+                    builds.
+                  </p>
+                  <p>
+                    For more information see
+                    <a href="https://fedoraproject.org/wiki/Packaging:Guidelines">
+                      guidelines
+                    </a>.
                   </p>
                 </div>
               </form>
             </div>
+
+
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group">
+                <p>
+                  RPM spec files have several sections which allow
+                  packages to run code on installation and
+                  removal. These bits of code are called scriptlets
+                  and are mostly used to update the running system
+                  with information from the package.
+                </p>
+                <p>
+                  For more information see
+                  <a href="https://fedoraproject.org/wiki/Packaging:Scriptlets">
+                    Fedora Packaging Guidelines for RPM Scriptlets
+                  </a>.
+                </p>
+                <p>All scriptlets are optional.</p>
+                </div>
+              </form>
+            </div>
+
+
+            <div class="wizard-pf-contents hidden">
+              <form class="form-horizontal">
+                <div class="form-group required">
+                  <p>
+                    The %pretrans scriptlet will, in the particular
+                    case of system installation, run before anything
+                    at all has been installed. This implies that it
+                    cannot have any dependencies at all. Not even
+                    shell. For this reason, %pretrans is best avoided,
+                    but if used it MUST (by necessity) be written in
+                    Lua. See
+                    <a href="http://rpm.org/user_doc/lua.html">
+                      Lua in RPM
+                    </a>
+                    for more information.
+                  </p>
+                </div>
+              </form>
+            </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-pre-input">Pre</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-pre-input" class="form-control" rows="5" placeholder="if [ $1 -gt 1 ] ; then\nfi" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-pre-input" class="form-control" rows="5"
+                              placeholder="if [ $1 -gt 1 ] ; then\nfi" onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The %pre scriptlet executes just before the package is to be installed.</p>
+                  <p>
+                    The %pre scriptlet executes just before the
+                    package is to be installed.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-post-input">Post</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-post-input" class="form-control" rows="5" placeholder="%systemd_post apache-httpd.service" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-post-input" class="form-control" rows="5"
+                              placeholder="%systemd_post apache-httpd.service"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The %post scriptlet executes just after the package is to be installed.</p>
+                  <p>
+                    The %post scriptlet executes just after the
+                    package is to be installed.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-preun-input">Preun</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-preun-input" class="form-control" rows="5" placeholder="%systemd_preun apache-httpd.service" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-preun-input" class="form-control" rows="5"
+                              placeholder="%systemd_preun apache-httpd.service"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The %preun scriptlet executes just before the package is to be erased.</p>
+                  <p>
+                    The %preun scriptlet executes just before the
+                    package is to be erased.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-postun-input">Postun</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-postun-input" class="form-control" rows="5" placeholder="%systemd_postun_with_restart apache-httpd.service" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-postun-input" class="form-control" rows="5"
+                              placeholder="%systemd_postun_with_restart apache-httpd.service"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The %postun scriptlet executes just after the package is to be erased. </p>
+                  <p>
+                    The %postun scriptlet executes just after the
+                    package is to be erased.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <form class="form-horizontal">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="package-posttrans-input">Posttrans</label>
                   <div class="col-sm-10">
-                    <textarea input id="package-posttrans-input" class="form-control" rows="5" onchange="refreshSpec()"></textarea>
+                    <textarea input id="package-posttrans-input" class="form-control" rows="5"
+                              onchange="refreshSpec()"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <p>The %posttrans scriptlet executes after all RPM package transactions.</p>
+                  <p>
+                    The %posttrans scriptlet executes after all RPM
+                    package transactions.
+                  </p>
                 </div>
               </form>
             </div>
+
+
             <div class="wizard-pf-contents hidden">
               <div class="wizard-pf-review-steps">
 
