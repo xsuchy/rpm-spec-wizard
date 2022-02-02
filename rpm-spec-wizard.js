@@ -34,8 +34,13 @@ function getUrl() {
 }
 
 
+function getSource0Value() {
+    return document.getElementById('package-source0-input').value
+}
+
+
 function getSource0() {
-    var value = document.getElementById('package-source0-input').value
+    value = getSource0Value()
     return optionalMacro("Source0", value);
 }
 
@@ -130,6 +135,21 @@ function getChangelog() {
 }
 
 
+function getSpec() {
+    return getName() + ".spec"
+}
+
+
+function getRpmbuildBS() {
+    return "rpmbuild -bs ~/rpmbuild/SPECS/" + getSpec()
+}
+
+
+function getRpmbuildBA() {
+    return "rpmbuild -ba ~/rpmbuild/SPECS/" + getSpec()
+}
+
+
 function optionalMacro(name, value) {
     if (!value) {
         return "";
@@ -193,6 +213,18 @@ function refreshSpec() {
     document.querySelector('.result .package-posttrans').innerHTML = getPosttrans();
     document.querySelector('.result .package-files').innerHTML = getFiles();
     document.querySelector('.result .package-changelog').innerHTML = getChangelog();
+
+    if (getSpec() && getSource0Value()) {
+        document.querySelector('.next-steps .package-spec').innerHTML = getSpec();
+        document.querySelector('.next-steps .package-source0').innerHTML = getSource0Value();
+        document.querySelector('.next-steps .rpmbuild-bs').innerHTML = getRpmbuildBS();
+        document.querySelector('.next-steps .rpmbuild-ba').innerHTML = getRpmbuildBA();
+        $(".next-steps-ready").removeClass("hidden");
+        $(".next-steps-not-ready").addClass("hidden");
+    } else {
+        $(".next-steps-ready").addClass("hidden");
+        $(".next-steps-not-ready").removeClass("hidden");
+    }
 }
 
 
