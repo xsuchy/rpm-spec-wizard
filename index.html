@@ -277,6 +277,12 @@
                   <span class="wizard-pf-substep-title">Result</span>
                 </a>
               </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <span class="wizard-pf-substep-number">4B.</span>
+                  <span class="wizard-pf-substep-title">Next steps</span>
+                </a>
+              </li>
             </ul>
           </div> <!-- /.wizard-pf-sidebar -->
 
@@ -992,6 +998,59 @@ Array.prototype.forEach.call(textAreas, function(elem) {
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
               </div>
             </div>
+
+
+            <div class="wizard-pf-contents hidden next-steps">
+                <div class="wizard-instructions">
+                  <h3>Next steps</h3>
+
+                  <div class="next-steps-ready">
+                    <p>
+                      At this point, you already have your spec file
+                      prepared. Continue by generating a SRPM package.
+                    </p>
+
+                    <h4>Prerequisites</h4>
+<pre>
+sudo dnf install fedora-packager rpmdevtools gcc
+rpmdev-setuptree
+</pre>
+                    <p>
+                      Save the generated spec file as
+                      <code>~/rpmbuild/SPECS/<span class="package-spec"></span></code>
+                    </p>
+                    <p>
+                      Save your <code class="package-source0"></code> sources into
+                      <code>~/rpmbuild/SOURCES/</code>
+                    </p>
+
+                    <h4>Generate SRPM</h4>
+                    <pre class="rpmbuild-bs"></pre>
+
+                    <h4>Generate RPM</h4>
+                    <p>Either generate RPM locally</p>
+                    <pre class="rpmbuild-ba"></pre>
+                    <p>
+                      Or build it in Copr, please see
+                      <a href="https://docs.pagure.org/copr.copr/screenshots_tutorial.html#screenshots-tutorial">
+                        this screenshot tutorial
+                      </a>
+                      for more.
+                    </p>
+                  </div>
+
+                  <div class="next-steps-not-ready">
+                    <p>
+                      You didn't provide enough information to generate a working
+                      spec file.
+                      <br>
+                      Please set the package name and Source0.
+                    </p>
+                  </div>
+                </div>
+            </div>
+
+
           </div><!-- /.wizard-pf-main -->
         </div>
 
@@ -1024,6 +1083,11 @@ Array.prototype.forEach.call(textAreas, function(elem) {
   var wizard = createWizard();
 </script>
 
+<script>
+  $(document).ready(function() {
+    refreshSpec()
+  });
+</script>
 
   <footer>
     <div class="container">
